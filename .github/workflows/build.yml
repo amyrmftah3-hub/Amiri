@@ -4,7 +4,7 @@ on:
   push:
     branches: [ main ]
     paths:
-      - 'AMIRI-Android-Source.zip'
+      - 'AMIRI-Android-Source.tar.gz'
       - '.github/workflows/build.yml'
 permissions:
   contents: read
@@ -24,7 +24,7 @@ jobs:
       - name: Install Android SDK
         run: sdkmanager 'platforms;android-35' 'build-tools;35.0.0'
       - name: Extract Android project
-        run: unzip -q AMIRI-Android-Source.zip -d buildsrc
+        run: mkdir -p buildsrc && tar -xzf AMIRI-Android-Source.tar.gz -C buildsrc
       - name: Build debug APK
         working-directory: buildsrc/Amiri-Android
         run: gradle --no-daemon assembleDebug
