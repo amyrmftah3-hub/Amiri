@@ -5,6 +5,7 @@ on:
     branches: [ main ]
     paths:
       - 'AMIRI-Android-Source.tar.gz'
+      - 'README.md'
 permissions:
   contents: read
 jobs:
